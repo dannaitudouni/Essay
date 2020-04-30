@@ -1,0 +1,13 @@
+1、安装wqy-zenhei字体
+
+sudo apt-get install ttf-wqy-zenhei
+
+2、系统字体配置文件/etc/fonts/conf.d/49-sansserif.conf
+
+sudo vim /etc/fonts/conf.d/49-sansserif.conf
+
+修改倒数第四行的字体为WenQuanYi Zen Hei，如下:
+
+<string>WenQuanYi Zen Hei</string>
+
+3、重启chrome，OK！！！ 

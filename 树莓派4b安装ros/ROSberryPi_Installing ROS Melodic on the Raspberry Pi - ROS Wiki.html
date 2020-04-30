@@ -1,0 +1,370 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0085)http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Melodic%20on%20the%20Raspberry%20Pi -->
+<html class=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="google-site-verification" content="CjkdY6BqKWAVmQ78_iSq6J7ZZ9AoL7-CjFVBYGg9FU4">
+<link rel="shortcut icon" href="http://wiki.ros.org/custom/favicon.ico" type="image/ico">
+<link rel="stylesheet" href="./ROSberryPi_Installing ROS Melodic on the Raspberry Pi - ROS Wiki_files/bootstrap.min.css">
+<script type="text/javascript" async="" src="./ROSberryPi_Installing ROS Melodic on the Raspberry Pi - ROS Wiki_files/ga.js.下载"></script><script src="./ROSberryPi_Installing ROS Melodic on the Raspberry Pi - ROS Wiki_files/jquery-1.11.0.min.js.下载"></script>
+<script src="./ROSberryPi_Installing ROS Melodic on the Raspberry Pi - ROS Wiki_files/bootstrap.min.js.下载"></script>
+<script type="text/javascript" src="./ROSberryPi_Installing ROS Melodic on the Raspberry Pi - ROS Wiki_files/sorttable.js.下载"></script>
+<script type="text/javascript" src="./ROSberryPi_Installing ROS Melodic on the Raspberry Pi - ROS Wiki_files/jquery.min.js.下载"></script>                         
+<script type="text/javascript" src="./ROSberryPi_Installing ROS Melodic on the Raspberry Pi - ROS Wiki_files/seesaw.js.下载"></script> 
+<script type="text/javascript" src="./ROSberryPi_Installing ROS Melodic on the Raspberry Pi - ROS Wiki_files/rosversion.js.下载"></script> 
+<!--script type="text/javascript" src="/custom/libraries/RGraph.common.core.js" ></script Used for metrics only, should be conditional, not at the top-->
+<!--script type="text/javascript" src="/custom/libraries/RGraph.bar.js" ></script same as above -->
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-17821189-2']);
+  _gaq.push(['_setDomainName', 'wiki.ros.org']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+<meta name="robots" content="index,nofollow">
+
+<title>ROSberryPi/Installing ROS Melodic on the Raspberry Pi - ROS Wiki</title>
+<script type="text/javascript" src="./ROSberryPi_Installing ROS Melodic on the Raspberry Pi - ROS Wiki_files/common.js.下载"></script>
+
+<script type="text/javascript">
+<!--
+var search_hint = "搜索";
+//-->
+</script>
+
+
+<link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="./ROSberryPi_Installing ROS Melodic on the Raspberry Pi - ROS Wiki_files/common.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="screen" href="./ROSberryPi_Installing ROS Melodic on the Raspberry Pi - ROS Wiki_files/screen.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="print" href="./ROSberryPi_Installing ROS Melodic on the Raspberry Pi - ROS Wiki_files/print.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="projection" href="./ROSberryPi_Installing ROS Melodic on the Raspberry Pi - ROS Wiki_files/projection.css">
+
+<!-- css only for MS IE6/IE7 browsers -->
+<!--[if lt IE 8]>
+   <link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="/moin_static197/rostheme/css/msie.css">
+<![endif]-->
+
+
+
+
+<link rel="canonical" href="http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Melodic%20on%20the%20Raspberry%20Pi">
+
+<link rel="Start" href="http://wiki.ros.org/Documentation">
+<link rel="Alternate" title="维基标记" href="http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Melodic%20on%20the%20Raspberry%20Pi?action=raw">
+<link rel="Alternate" media="print" title="打印视图" href="http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Melodic%20on%20the%20Raspberry%20Pi?action=print">
+<link rel="Up" href="http://wiki.ros.org/ROSberryPi">
+<link rel="Search" href="http://wiki.ros.org/FindPage">
+<link rel="Index" href="http://wiki.ros.org/TitleIndex">
+<link rel="Glossary" href="http://wiki.ros.org/WordIndex">
+<link rel="Help" href="http://wiki.ros.org/HelpOnFormatting">
+<link type="text/css" rel="stylesheet" charset="UTF-8" href="./ROSberryPi_Installing ROS Melodic on the Raspberry Pi - ROS Wiki_files/translateelement.css"></head>
+
+<body lang="zh" dir="ltr">
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="./ROSberryPi_Installing ROS Melodic on the Raspberry Pi - ROS Wiki_files/ga.js.下载" type="text/javascript"></script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-5950817-2");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+<script type="text/javascript">
+<!--// Initialize search form
+var f = document.getElementById('searchform');
+if(f) f.getElementsByTagName('label')[0].style.display = 'none';
+var e = document.getElementById('searchinput');
+if(e) {
+  searchChange(e);
+  searchBlur(e);
+}
+
+function handleSubmit() {
+  var f = document.getElementById('searchform');
+  var t = document.getElementById('searchinput');
+  var r = document.getElementById('real_searchinput');
+
+  //alert("handleSubmit "+ t.value);
+  if(t.value.match(/review/)) {
+    r.value = t.value;
+  } else {
+    //r.value = t.value + " -PackageReviewCategory -StackReviewCategory -M3Review -DocReview -ApiReview -HelpOn -BadContent -LocalSpellingWords";
+    r.value = t.value + " -PackageReviewCategory -StackReviewCategory -DocReview -ApiReview";
+  }
+  //return validate(f);
+}
+//-->
+</script>
+
+<div id="dpage">
+  <div id="dpage-inner">
+    <div id="header"><div id="topnav">
+
+<!-- Alert box -->
+<!-- To enable/disable the alert box, uncomment/comment the block below and update the content below the button. -->
+<!--
+    <div class="alert alert-info alert-dismissable" style="text-align: center;">
+<script>
+jQuery(function( $ ){
+    alert_box_name = 'roswiki_eloquent_tshirt_20191124'
+    state = localStorage.getItem(alert_box_name);
+    if (!state) {
+      localStorage.setItem(alert_box_name, 'open');
+    }
+    state = localStorage.getItem(alert_box_name);
+    if (state == 'closed') {
+        $( '#topnav .alert' ).hide();
+    }
+    $( '.close' ).click(function () {
+	console.log('in .close.click');
+        localStorage.setItem(alert_box_name, 'closed');
+        $( '#topnav .alert' ).hide();
+  });
+});
+</script>
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      ROS Eloquent Elusor tshirts are available until Dec 12th. <a href="https://teespring.com/ros-eloquent-elusor">Order yours now!</a>
+    </div>
+-->
+<!-- End Alert box -->
+
+      <table id="topnav-table">
+        <tbody><tr>
+          <td width="300" valign="top"><a href="http://wiki.ros.org/"><img border="0" src="./ROSberryPi_Installing ROS Melodic on the Raspberry Pi - ROS Wiki_files/ros_org.png" alt="ros.org" width="238" height="51"></a></td>
+          <td width="500" valign="middle">
+            <a href="http://www.ros.org/about-ros">About</a>
+            |
+            <a href="http://wiki.ros.org/Support">Support</a>
+            |
+            <a href="http://discourse.ros.org/">Discussion Forum</a>
+            |
+            <a href="http://status.ros.org/">Service Status</a>
+            |
+            <a href="http://answers.ros.org/">Q&amp;A answers.ros.org</a>
+
+<!--<a href="http://roscon.ros.org/2016/"><img align="middle" style="padding-left: 15px;" src="http://ros.org/images/roscon_wiki_header.jpg" width="133" height="65" alt="ROSCon 2016" /></a>
+-->
+
+<!-- <a href="https://events.osrfoundation.org/ros-kong-2014/"><img align="middle" style="padding-left: 15px;" src="http://ros.org/images/ros_kong_2014_badge.png" width="133" height="38" alt="roskong" /></a>
+-->
+<!--a href="https://events.osrfoundation.org/ros-kong-2014/"><img align="middle" style="padding-left: 15px;" src="http://imgur.com/eMzUJVe.png" width="133" height="38" alt="roskong" /></a-->
+          </td>
+
+          <td valign="middle" align="right">
+
+<script language="Javascript">
+
+function Searchy(theButton){
+
+theForm = theButton.form;
+newID = theForm.input.value;
+theForm.q.value = newID;
+theForm.input.value=theForm.input.value
+
+}
+</script>
+
+
+<form action="https://www.ros.org/search/index.html" id="cse">
+  <div>
+    <label>Search:</label>
+    <input type="hidden" name="cx" value="005596761048178735851:_ejygd2ukbe">
+    <input type="hidden" name="cof" value="FORID:11;NB:1">
+    <input type="hidden" name="filter" value="0">
+    <input type="hidden" name="num" value="10">
+
+    <input type="hidden" name="ie" value="UTF-8">
+    <input type="text" name="input" id="input" autocomplete="on" style="width: 35%">
+    <input type="hidden" name="q" value="">
+    <input type="submit" name="sa" value="Submit" onclick="Searchy(this)">
+
+  </div>
+</form>
+
+         </td>
+      </tr>
+      <tr>
+        <td colspan="3" height="53" width="1024"><nobr><img src="./ROSberryPi_Installing ROS Melodic on the Raspberry Pi - ROS Wiki_files/menu_left.png" width="17" height="53" alt=""><a href="http://wiki.ros.org/"><img border="0" src="./ROSberryPi_Installing ROS Melodic on the Raspberry Pi - ROS Wiki_files/menu_documentation.png" width="237" height="53" alt="Documentation"></a><img src="./ROSberryPi_Installing ROS Melodic on the Raspberry Pi - ROS Wiki_files/menu_spacer.png" width="69" height="53"><a href="https://index.ros.org/packages"><img border="0" src="./ROSberryPi_Installing ROS Melodic on the Raspberry Pi - ROS Wiki_files/menu_browse_software.png" width="268" height="53" alt="Browse Software"></a><img src="./ROSberryPi_Installing ROS Melodic on the Raspberry Pi - ROS Wiki_files/menu_spacer.png" width="69" height="53"><a href="https://discourse.ros.org/c/general"><img border="0" src="./ROSberryPi_Installing ROS Melodic on the Raspberry Pi - ROS Wiki_files/menu_news.png" width="84" height="53" alt="News"></a><img src="./ROSberryPi_Installing ROS Melodic on the Raspberry Pi - ROS Wiki_files/menu_spacer.png" width="69" height="53"><a href="http://wiki.ros.org/ROS/Installation"><img border="0" src="./ROSberryPi_Installing ROS Melodic on the Raspberry Pi - ROS Wiki_files/menu_download.png" width="151" height="53" alt="Download"></a><img src="./ROSberryPi_Installing ROS Melodic on the Raspberry Pi - ROS Wiki_files/menu_right.png" width="60" height="53"></nobr></td>
+
+      </tr>
+    </tbody></table> <!-- topnav-table -->
+
+    </div> <!-- /#topav -->
+  </div> <!-- /#header -->
+
+
+<div id="header2">
+
+<ul id="pagelocation">
+<li><a href="http://wiki.ros.org/ROSberryPi">ROSberryPi</a></li><li><a class="backlink" href="http://wiki.ros.org/action/fullsearch/ROSberryPi/Installing%20ROS%20Melodic%20on%20the%20Raspberry%20Pi?action=fullsearch&amp;context=180&amp;value=linkto%3A%22ROSberryPi%2FInstalling+ROS+Melodic+on+the+Raspberry+Pi%22" rel="nofollow" title="点击对这个标题进行全文检索">Installing ROS Melodic on the Raspberry Pi</a></li>
+</ul>
+
+<div id="locationline">
+</div>
+</div>
+
+<div id="sidebar">
+<div class="sidepanel">
+<h1>维基</h1>
+
+<ul id="navibar">
+<li class="wikilink"><a href="http://wiki.ros.org/Distributions">Distributions</a></li><li class="wikilink"><a href="http://wiki.ros.org/ROS/Installation">ROS/Installation</a></li><li class="wikilink"><a href="http://wiki.ros.org/ROS/Tutorials">ROS/Tutorials</a></li><li class="wikilink"><a href="http://wiki.ros.org/RecentChanges">RecentChanges</a></li><li class="current"><a href="http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Melodic%20on%20the%20Raspberry%20Pi">Installing ...aspberry Pi</a></li>
+</ul>
+
+</div>
+<div class="sidepanel">
+<h1>网页</h1>
+<ul class="editbar"><li><span class="disabled">只读网页</span></li><li class="toggleCommentsButton" style="display:none;"><a href="http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Melodic%20on%20the%20Raspberry%20Pi#" class="nbcomment" onclick="toggleComments();return false;">注释</a></li><li><a class="nbinfo" href="http://wiki.ros.org/action/info/ROSberryPi/Installing%20ROS%20Melodic%20on%20the%20Raspberry%20Pi?action=info" rel="nofollow">信息</a></li><li><a class="nbattachments" href="http://wiki.ros.org/action/AttachFile/ROSberryPi/Installing%20ROS%20Melodic%20on%20the%20Raspberry%20Pi?action=AttachFile" rel="nofollow">附件</a></li><li>
+<form class="actionsmenu" method="GET" action="http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Melodic%20on%20the%20Raspberry%20Pi">
+<div>
+    
+    <select name="action" onchange="if ((this.selectedIndex != 0) &amp;&amp;
+                      (this.options[this.selectedIndex].disabled == false)) {
+                this.form.submit();
+            }
+            this.selectedIndex = 0;">
+        <option value="show">更多操作：</option><option value="raw">源码</option>
+<option value="print">打印视图</option>
+<option value="RenderAsDocbook">输出Docbook格式</option>
+<option value="show" disabled="" class="disabled">删除缓存</option>
+<option value="show" disabled="" class="disabled">------------------------</option>
+<option value="SpellCheck">拼写检查</option>
+<option value="LikePages">相似网页</option>
+<option value="LocalSiteMap">本站地图</option>
+<option value="show" disabled="" class="disabled">------------------------</option>
+<option value="RenamePage" disabled="" class="disabled">改名</option>
+<option value="CopyPage">复制网页</option>
+<option value="DeletePage" disabled="" class="disabled">删除</option>
+<option value="show" disabled="" class="disabled">------------------------</option>
+<option value="MyPages">我的网页</option>
+<option value="show" disabled="" class="disabled">订阅</option>
+<option value="show" disabled="" class="disabled">------------------------</option>
+<option value="show" disabled="" class="disabled">删除垃圾广告</option>
+<option value="show" disabled="" class="disabled">恢复成此版本</option>
+<option value="PackagePages">网页打包</option>
+<option value="SyncPages">同步网页</option>
+<option value="show" disabled="" class="disabled">------------------------</option>
+<option value="CreatePdfDocument">CreatePdfDocument</option>
+<option value="Load">加载</option>
+<option value="RawFile">RawFile</option>
+<option value="Save">保存</option>
+<option value="SlideShow">SlideShow</option>
+    </select>
+    
+    
+</div>
+<script type="text/javascript">
+<!--// Init menu
+actionsMenuInit('更多操作：');
+//-->
+</script>
+</form>
+</li></ul>
+
+</div>
+<div class="sidepanel">
+<h1>用户</h1>
+<ul id="username"><li><a href="http://wiki.ros.org/action/login/ROSberryPi/Installing%20ROS%20Melodic%20on%20the%20Raspberry%20Pi?action=login" id="login" rel="nofollow">登录</a></li></ul>
+</div>
+</div>
+
+<div id="page" lang="en" dir="ltr">
+
+<div dir="ltr" id="content" lang="en"><span class="anchor" id="top"></span>
+<span class="anchor" id="line-1"></span><span class="anchor" id="line-2"></span><span class="anchor" id="line-3"></span><span class="anchor" id="line-4"></span><span class="anchor" id="line-5"></span><span class="anchor" id="line-6"></span><span class="anchor" id="line-7"></span><span class="anchor" id="line-8"></span><span class="anchor" id="line-9"></span><span class="anchor" id="line-10"></span><span class="anchor" id="line-11"></span><span class="anchor" id="line-12"></span><span class="anchor" id="line-13"></span><span class="anchor" id="line-14"></span><span class="anchor" id="line-15"></span><span class="anchor" id="line-16"></span><span class="anchor" id="line-17"></span><span class="anchor" id="line-18"></span><span class="anchor" id="line-19"></span><span class="anchor" id="line-20"></span><span class="anchor" id="line-21"></span><span class="anchor" id="line-22"></span><span class="anchor" id="line-23"></span><p class="line867"><span class="anchor" id="line-1-1"></span><span class="anchor" id="line-2-1"></span><span class="anchor" id="line-3-1"></span><span class="anchor" id="line-4-1"></span><span class="anchor" id="line-5-1"></span></p><div><table><tbody><tr>  <td style="background-color: #bbceee"> <img alt="(!)" height="15" src="./ROSberryPi_Installing ROS Melodic on the Raspberry Pi - ROS Wiki_files/idea.png" title="(!)" width="15"> Please ask about problems and questions regarding this tutorial on <a class="http" href="http://answers.ros.org/">answers.ros.org</a>. Don't forget to include in your question the link to this page, the versions of your OS &amp; ROS, and also add appropriate tags.</td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-6-1"></span><span class="anchor" id="line-7-1"></span><span class="anchor" id="line-8-1"></span>
+<h1 id="Installing_ROS_Melodic_on_the_Raspberry_Pi">Installing ROS Melodic on the Raspberry Pi</h1>
+<span class="anchor" id="line-9-1"></span><strong>Description:</strong> This instruction covers the installation of ROS Melodic on the <a class="http" href="http://www.raspberrypi.org/">Raspberry Pi</a> with Raspbian Buster. However as final repositories are available now, today it is faster and easier to use Ubuntu Mate 18.04 (Bionic, <a class="https" href="https://www.raspberrypi.org/downloads/">here</a>) together with the standard ARM installation instructions <a href="http://wiki.ros.org/melodic/Installation/Ubuntu">here</a>.<br>
+<br>
+ <span class="anchor" id="line-10-1"></span><span class="anchor" id="line-11-1"></span><span class="anchor" id="line-12-1"></span><strong>Keywords:</strong> <a class="http" href="http://www.raspberrypi.org/">RaspberryPi</a>, Setup, Melodic, Buster<br>
+<br>
+ <span class="anchor" id="line-13-1"></span><span class="anchor" id="line-14-1"></span><span class="anchor" id="line-15-1"></span><strong>Tutorial Level:</strong> BEGINNER<br>
+ <br>
+ <span class="anchor" id="line-16-1"></span><span class="anchor" id="line-17-1"></span><span class="anchor" id="line-18-1"></span><p class="line874"> <span class="anchor" id="line-24"></span><span class="anchor" id="line-25"></span></p><p class="line867"></p><div class="table-of-contents"><p class="table-of-contents-heading">目录</p><ol><li>
+<a href="http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Melodic%20on%20the%20Raspberry%20Pi#Introduction">Introduction</a></li><li>
+<a href="http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Melodic%20on%20the%20Raspberry%20Pi#Prerequisites">Prerequisites</a><ol><li>
+<a href="http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Melodic%20on%20the%20Raspberry%20Pi#Setup_ROS_Repositories">Setup ROS Repositories</a></li><li>
+<a href="http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Melodic%20on%20the%20Raspberry%20Pi#Install_Bootstrap_Dependencies">Install Bootstrap Dependencies</a></li><li>
+<a href="http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Melodic%20on%20the%20Raspberry%20Pi#Initializing_rosdep">Initializing rosdep</a></li></ol></li><li>
+<a href="http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Melodic%20on%20the%20Raspberry%20Pi#Installation">Installation</a><ol><li>
+<a href="http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Melodic%20on%20the%20Raspberry%20Pi#Create_a_catkin_Workspace">Create a catkin Workspace</a></li><li>
+<a href="http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Melodic%20on%20the%20Raspberry%20Pi#Resolve_Dependencies">Resolve Dependencies</a><ol><li>
+<a href="http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Melodic%20on%20the%20Raspberry%20Pi#Resolving_Dependencies_with_rosdep">Resolving Dependencies with rosdep</a></li></ol></li><li>
+<a href="http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Melodic%20on%20the%20Raspberry%20Pi#Building_the_catkin_Workspace">Building the catkin Workspace</a></li></ol></li><li>
+<a href="http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Melodic%20on%20the%20Raspberry%20Pi#Maintaining_a_Source_Checkout">Maintaining a Source Checkout</a><ol><li>
+<a href="http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Melodic%20on%20the%20Raspberry%20Pi#Updating_the_Workspace">Updating the Workspace</a></li><li>
+<a href="http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Melodic%20on%20the%20Raspberry%20Pi#Adding_Released_Packages">Adding Released Packages</a></li></ol></li><li>
+<a href="http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Melodic%20on%20the%20Raspberry%20Pi#References">References</a></li></ol></div><p class="line874"> <span class="anchor" id="line-26"></span><span class="anchor" id="line-27"></span></p><p class="line867">
+</p><h2 id="Introduction">Introduction</h2>
+<span class="anchor" id="line-28"></span><p class="line862">This tutorial explains how to install ROS Melodic from source on the Raspberry Pi. The instructions is based on the <a class="nonexistent" href="http://wiki.ros.org/ROSberryPi/Installing%2520ROS%2520Kinetic%2520on%2520the%2520Raspberry%2520Pi">ROSberryPi Kinetic installation</a>. <span class="anchor" id="line-29"></span><span class="anchor" id="line-30"></span></p><p class="line867"><span class="anchor" id="line-31"></span><span class="anchor" id="line-32"></span></p><div class="blue solid"><span class="anchor" id="line-1-2"></span><p class="line867"><img alt="/!\" height="15" src="./ROSberryPi_Installing ROS Melodic on the Raspberry Pi - ROS Wiki_files/alert.png" title="/!\" width="15"> <strong>Note:</strong> If you're using the Raspberry Pi 2 or 3 it is faster and easier to use the standard ARM installation instructions <a href="http://wiki.ros.org/melodic/Installation/Ubuntu">here</a>. </p></div><span class="anchor" id="line-33"></span><p class="line867">
+</p><h2 id="Prerequisites">Prerequisites</h2>
+<span class="anchor" id="line-34"></span><p class="line862">These instructions assume that Raspbian Buster is being used as the OS on the Raspberry Pi. The download page for current images of Raspbian is <a class="https" href="https://www.raspberrypi.org/downloads/">https://www.raspberrypi.org/downloads/</a>. <span class="anchor" id="line-35"></span><span class="anchor" id="line-36"></span></p><p class="line867">
+</p><h3 id="Setup_ROS_Repositories">Setup ROS Repositories</h3>
+<span class="anchor" id="line-37"></span><p class="line874">First install repository key: <span class="anchor" id="line-38"></span><span class="anchor" id="line-39"></span><span class="anchor" id="line-40"></span><span class="anchor" id="line-41"></span></p><pre><span class="anchor" id="line-1-3"></span>$ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" &gt; /etc/apt/sources.list.d/ros-latest.list'
+<span class="anchor" id="line-2-2"></span>$ sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654</pre><span class="anchor" id="line-42"></span><p class="line874">Now, make sure your Debian package index is up-to-date: <span class="anchor" id="line-43"></span><span class="anchor" id="line-44"></span></p><p class="line867"><span class="anchor" id="line-45"></span><span class="anchor" id="line-46"></span><span class="anchor" id="line-47"></span></p><pre><span class="anchor" id="line-1-4"></span>$ sudo apt-get update
+<span class="anchor" id="line-2-3"></span>$ sudo apt-get upgrade</pre><span class="anchor" id="line-48"></span><span class="anchor" id="line-49"></span><p class="line867">
+</p><h3 id="Install_Bootstrap_Dependencies">Install Bootstrap Dependencies</h3>
+<span class="anchor" id="line-50"></span><p class="line867"><span class="anchor" id="line-51"></span><span class="anchor" id="line-52"></span></p><pre><span class="anchor" id="line-1-5"></span>$ sudo apt install -y python-rosdep python-rosinstall-generator python-wstool python-rosinstall build-essential cmake</pre><span class="anchor" id="line-53"></span><span class="anchor" id="line-54"></span><p class="line867">
+</p><h3 id="Initializing_rosdep">Initializing rosdep</h3>
+<span class="anchor" id="line-55"></span><p class="line867"><span class="anchor" id="line-56"></span><span class="anchor" id="line-57"></span><span class="anchor" id="line-58"></span></p><pre><span class="anchor" id="line-1-6"></span>$ sudo rosdep init
+<span class="anchor" id="line-2-4"></span>$ rosdep update</pre><span class="anchor" id="line-59"></span><p class="line867">
+</p><h2 id="Installation">Installation</h2>
+<span class="anchor" id="line-60"></span><p class="line874">Now, we will download and build ROS Melodic. <span class="anchor" id="line-61"></span><span class="anchor" id="line-62"></span></p><p class="line867">
+</p><h3 id="Create_a_catkin_Workspace">Create a catkin Workspace</h3>
+<span class="anchor" id="line-63"></span><p class="line874">In order to build the core packages, you will need a catkin workspace. Create one now: <span class="anchor" id="line-64"></span><span class="anchor" id="line-65"></span></p><p class="line867"><span class="anchor" id="line-66"></span><span class="anchor" id="line-67"></span><span class="anchor" id="line-68"></span></p><pre><span class="anchor" id="line-1-7"></span>$ mkdir -p ~/ros_catkin_ws
+<span class="anchor" id="line-2-5"></span>$ cd ~/ros_catkin_ws</pre><span class="anchor" id="line-69"></span><p class="line874">Next we will want to fetch the core packages so we can build them. We will use wstool for this. Select the wstool command for the particular variant you want to install: <span class="anchor" id="line-70"></span><span class="anchor" id="line-71"></span></p><p class="line867"><strong>ROS-Comm: (recommended)</strong> ROS package, build, and communication libraries. No GUI tools. <span class="anchor" id="line-72"></span><span class="anchor" id="line-73"></span></p><ul><li style="list-style-type:none"><span class="anchor" id="line-74"></span><span class="anchor" id="line-75"></span><span class="anchor" id="line-76"></span><pre><span class="anchor" id="line-1-8"></span>$ rosinstall_generator ros_comm --rosdistro melodic --deps --wet-only --tar &gt; melodic-ros_comm-wet.rosinstall
+<span class="anchor" id="line-2-6"></span>$ wstool init src melodic-ros_comm-wet.rosinstall</pre><span class="anchor" id="line-77"></span><span class="anchor" id="line-78"></span></li></ul><p class="line867"><strong>Desktop: </strong> ROS, <a href="http://wiki.ros.org/rqt">rqt</a>, <a href="http://wiki.ros.org/rviz">rviz</a>, and robot-generic libraries <span class="anchor" id="line-79"></span><span class="anchor" id="line-80"></span></p><ul><li style="list-style-type:none"><span class="anchor" id="line-81"></span><span class="anchor" id="line-82"></span><span class="anchor" id="line-83"></span><pre><span class="anchor" id="line-1-9"></span>$ rosinstall_generator desktop --rosdistro melodic --deps --wet-only --tar &gt; melodic-desktop-wet.rosinstall
+<span class="anchor" id="line-2-7"></span>$ wstool init src melodic-desktop-wet.rosinstall</pre><span class="anchor" id="line-84"></span><span class="anchor" id="line-85"></span></li></ul><p class="line862">This will add all of the <tt class="backtick">catkin</tt> or <tt class="backtick">wet</tt> packages in the given variant and then fetch the sources into the <tt class="backtick">~/ros_catkin_ws/src</tt> directory. The command will take a few minutes to download all of the core ROS packages into the <tt class="backtick">src</tt> folder. The <tt class="backtick">-j8</tt> option downloads 8 packages in parallel. <span class="anchor" id="line-86"></span><span class="anchor" id="line-87"></span></p><p class="line867"><span class="anchor" id="line-88"></span><span class="anchor" id="line-89"></span><span class="anchor" id="line-90"></span><span class="anchor" id="line-91"></span><span class="anchor" id="line-92"></span><span class="anchor" id="line-93"></span><span class="anchor" id="line-94"></span><span class="anchor" id="line-95"></span></p><div class="blue solid"><span class="anchor" id="line-1-10"></span><p class="line862">So far, only the ROS-Comm variant has been tested on the Raspberry Pi in Melodic; however, more are defined in <a class="http" href="http://ros.org/reps/rep-0131.html#variants">REP 131</a> such as <tt class="backtick">robot</tt>, <tt class="backtick">perception</tt>, etc. Just change the package path to the one you want, e.g., for <tt class="backtick">robot</tt> do: <span class="anchor" id="line-2-8"></span><span class="anchor" id="line-3-2"></span></p><p class="line867"><span class="anchor" id="line-4-2"></span><span class="anchor" id="line-5-2"></span><span class="anchor" id="line-6-2"></span></p><pre><span class="anchor" id="line-1-11"></span>$ rosinstall_generator robot --rosdistro melodic --deps --wet-only --tar &gt; melodic-robot-wet.rosinstall
+<span class="anchor" id="line-2-9"></span>$ wstool init src melodic-robot-wet.rosinstall</pre><span class="anchor" id="line-7-2"></span><p class="line874">Please feel free to update these instructions as you test more variants. </p></div><span class="anchor" id="line-96"></span><p class="line867"><span class="anchor" id="line-97"></span><span class="anchor" id="line-98"></span><span class="anchor" id="line-99"></span><span class="anchor" id="line-100"></span><span class="anchor" id="line-101"></span><span class="anchor" id="line-102"></span></p><div class="red solid"><span class="anchor" id="line-1-12"></span><p class="line862">If <tt class="backtick">wstool&nbsp;init</tt> fails or is interrupted, you can resume the download by running: <span class="anchor" id="line-2-10"></span><span class="anchor" id="line-3-3"></span></p><p class="line867"><span class="anchor" id="line-4-3"></span><span class="anchor" id="line-5-3"></span></p><pre><span class="anchor" id="line-1-13"></span>wstool update -j4 -t src</pre></div><span class="anchor" id="line-103"></span><span class="anchor" id="line-104"></span><p class="line867">
+</p><h3 id="Resolve_Dependencies">Resolve Dependencies</h3>
+<span class="anchor" id="line-105"></span><p class="line874">Before you can build your catkin workspace, you need to make sure that you have all the required dependencies. We use the rosdep tool for this. <span class="anchor" id="line-106"></span><span class="anchor" id="line-107"></span></p><p class="line867">
+</p><h4 id="Resolving_Dependencies_with_rosdep">Resolving Dependencies with rosdep</h4>
+<span class="anchor" id="line-108"></span><p class="line874">The dependencies should be resolved by running rosdep: <span class="anchor" id="line-109"></span><span class="anchor" id="line-110"></span><span class="anchor" id="line-111"></span><span class="anchor" id="line-112"></span></p><pre><span class="anchor" id="line-1-14"></span>$ cd ~/ros_catkin_ws
+<span class="anchor" id="line-2-11"></span>$ rosdep install -y --from-paths src --ignore-src --rosdistro melodic -r --os=debian:buster</pre><span class="anchor" id="line-113"></span><p class="line874">This will look at all of the packages in the src directory and find all of the dependencies they have. Then it will recursively install the dependencies. <span class="anchor" id="line-114"></span><span class="anchor" id="line-115"></span></p><p class="line874">The --from-paths option indicates we want to install the dependencies for an entire directory of packages, in this case src. The --ignore-src option indicates to rosdep that it shouldn't try to install any ROS packages in the src folder from the package manager, we don't need it to since we are building them ourselves. The --rosdistro option is required because we don't have a ROS environment setup yet, so we have to indicate to rosdep what version of ROS we are building for. Finally, the -y option indicates to rosdep that we don't want to be bothered by too many prompts from the package manager. <span class="anchor" id="line-116"></span><span class="anchor" id="line-117"></span></p><p class="line874">After a while rosdep will finish installing system dependencies and you can continue. <span class="anchor" id="line-118"></span><span class="anchor" id="line-119"></span></p><p class="line867">
+</p><h3 id="Building_the_catkin_Workspace">Building the catkin Workspace</h3>
+<span class="anchor" id="line-120"></span><p class="line874">Once you have completed downloading the packages and have resolved the dependencies, you are ready to build the catkin packages. <span class="anchor" id="line-121"></span><span class="anchor" id="line-122"></span></p><p class="line874">Invoke catkin_make_isolated: <span class="anchor" id="line-123"></span><span class="anchor" id="line-124"></span><span class="anchor" id="line-125"></span></p><pre><span class="anchor" id="line-1-15"></span>$ sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/melodic</pre><span class="anchor" id="line-126"></span><p class="line867"><span class="anchor" id="line-127"></span><span class="anchor" id="line-128"></span></p><div class="blue solid"><span class="anchor" id="line-1-16"></span><p class="line867"><strong>Note:</strong> This will install ROS in the equivalent file location to Ubuntu in <tt class="backtick">/opt/ros/melodic</tt> however you can modify this as you wish. </p></div><span class="anchor" id="line-129"></span><p class="line862">With older raspberries it is recommended to increase the <a class="http" href="http://raspberrypimaker.com/adding-swap-to-the-raspberrypi/">add swap space</a>. Also recommended to decrease the compilation thread count with the -j1 or -j2 option instead of the default -j4 option: <span class="anchor" id="line-130"></span><span class="anchor" id="line-131"></span></p><p class="line867"><span class="anchor" id="line-132"></span><span class="anchor" id="line-133"></span></p><pre><span class="anchor" id="line-1-17"></span>$ sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/melodic -j2</pre><span class="anchor" id="line-134"></span><span class="anchor" id="line-135"></span><p class="line874">Now ROS should be installed! Remember to source the new installation: <span class="anchor" id="line-136"></span><span class="anchor" id="line-137"></span></p><p class="line867"><span class="anchor" id="line-138"></span><span class="anchor" id="line-139"></span></p><pre><span class="anchor" id="line-1-18"></span>$ source /opt/ros/melodic/setup.bash</pre><span class="anchor" id="line-140"></span><p class="line862">Or optionally source the <tt class="backtick">setup.bash</tt> in the <tt class="backtick">~/.bashrc</tt>, so that ROS environment variables are automatically added to your bash session every time a new shell is launched: <span class="anchor" id="line-141"></span><span class="anchor" id="line-142"></span></p><p class="line867"><span class="anchor" id="line-143"></span><span class="anchor" id="line-144"></span></p><pre><span class="anchor" id="line-1-19"></span>$ echo "source /opt/ros/melodic/setup.bash" &gt;&gt; ~/.bashrc</pre><span class="anchor" id="line-145"></span><span class="anchor" id="line-146"></span><p class="line867">
+</p><h2 id="Maintaining_a_Source_Checkout">Maintaining a Source Checkout</h2>
+<span class="anchor" id="line-147"></span><p class="line867">
+</p><h3 id="Updating_the_Workspace">Updating the Workspace</h3>
+<span class="anchor" id="line-148"></span><p class="line862">See the <a href="http://wiki.ros.org/melodic/Installation/Source">Ubuntu source install instructions</a> for steps on updating the <tt class="backtick">ros_catkin_ws</tt> workspace. The same steps should apply to the Raspberry Pi. <span class="anchor" id="line-149"></span><span class="anchor" id="line-150"></span></p><p class="line867">
+</p><h3 id="Adding_Released_Packages">Adding Released Packages</h3>
+<span class="anchor" id="line-151"></span><p class="line862">You may add additional packages to the installed ros workspace that have been released into the ros ecosystem.  First, a new rosinstall file must be created including the new packages (Note, this can also be done at the initial install). For example, if we have installed <tt class="backtick">ros_comm</tt>, but want to add <tt class="backtick">ros_control</tt> and <tt class="backtick">joystick_drivers</tt>, the command would be: <span class="anchor" id="line-152"></span><span class="anchor" id="line-153"></span></p><p class="line867"><span class="anchor" id="line-154"></span><span class="anchor" id="line-155"></span><span class="anchor" id="line-156"></span></p><pre><span class="anchor" id="line-1-20"></span>$ cd ~/ros_catkin_ws
+<span class="anchor" id="line-2-12"></span>$ rosinstall_generator ros_comm ros_control joystick_drivers --rosdistro melodic --deps --wet-only --tar &gt; melodic-custom_ros.rosinstall</pre><span class="anchor" id="line-157"></span><p class="line874">You may keep listing as many ROS packages as you'd like separated by spaces. <span class="anchor" id="line-158"></span><span class="anchor" id="line-159"></span></p><p class="line874">Next, update the workspace with wstool: <span class="anchor" id="line-160"></span><span class="anchor" id="line-161"></span></p><p class="line867"><span class="anchor" id="line-162"></span><span class="anchor" id="line-163"></span><span class="anchor" id="line-164"></span></p><pre><span class="anchor" id="line-1-21"></span>$ wstool merge -t src melodic-custom_ros.rosinstall
+<span class="anchor" id="line-2-13"></span>$ wstool update -t src</pre><span class="anchor" id="line-165"></span><p class="line874">After updating the workspace, you may want to run rosdep to install any new dependencies that are required: <span class="anchor" id="line-166"></span><span class="anchor" id="line-167"></span></p><p class="line867"><span class="anchor" id="line-168"></span><span class="anchor" id="line-169"></span></p><pre><span class="anchor" id="line-1-22"></span>$ rosdep install --from-paths src --ignore-src --rosdistro melodic -y -r --os=debian:buster</pre><span class="anchor" id="line-170"></span><p class="line874">Finally, now that the workspace is up to date and dependencies are satisfied, rebuild the workspace: <span class="anchor" id="line-171"></span><span class="anchor" id="line-172"></span></p><p class="line867"><span class="anchor" id="line-173"></span><span class="anchor" id="line-174"></span></p><pre><span class="anchor" id="line-1-23"></span>$ sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/melodic</pre><span class="anchor" id="line-175"></span><p class="line867">
+</p><h2 id="References">References</h2>
+<span class="anchor" id="line-176"></span><ul><li><p class="line891"><a class="http" href="http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Kinetic%20on%20the%20Raspberry%20Pi">http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Kinetic%20on%20the%20Raspberry%20Pi</a> <span class="anchor" id="line-177"></span><span class="anchor" id="line-178"></span></p></li></ul><p class="line867"><span class="anchor" id="line-179"></span></p><p class="line867"><span class="anchor" id="line-180"></span></p><p class="line867"><span class="anchor" id="line-181"></span><span class="anchor" id="bottom"></span></p></div></div>
+<div id="pagebottom"></div>
+</div>
+
+<p id="pageinfo" class="info" lang="zh" dir="ltr">Wiki: ROSberryPi/Installing ROS Melodic on the Raspberry Pi  (2020-04-19 09:47:27由<span title="GaborCsorvasi @ catv-176-63-218-31.catv.broadband.hu[176.63.218.31]"><a class="nonexistent" href="http://wiki.ros.org/GaborCsorvasi" title="GaborCsorvasi @ catv-176-63-218-31.catv.broadband.hu[176.63.218.31]">GaborCsorvasi</a></span>编辑)</p>
+
+
+
+
+<div style="margin-top: 9px;" class="footer">
+Except where otherwise noted, the ROS wiki is licensed under the <br><a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0</a>
+<hr style="margin-top: 10px;">
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+<a href="http://www.osrfoundation.org/"><img style="margin-top: -1px;" src="./ROSberryPi_Installing ROS Melodic on the Raspberry Pi - ROS Wiki_files/brought_by_horiz.png"><p></p></a>
+  </div>
+</div>
+</div>
+
+  </div> <!-- /#dpage-inner, /#dpage --><div id="goog-gt-tt" class="skiptranslate" dir="ltr"><div style="padding: 8px;"><div><div class="logo"><img src="./ROSberryPi_Installing ROS Melodic on the Raspberry Pi - ROS Wiki_files/translate_24dp.png" width="20" height="20" alt="Google 翻译"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">原文</h1></div><div class="middle" style="padding: 8px;"><div class="original-text"></div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">提供更好的翻译建议</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none;"></div></div>
+
+
+
+
+
+<div class="goog-te-spinner-pos"><div class="goog-te-spinner-animation"><svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px" height="96px" viewBox="0 0 66 66"><circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div></body></html>

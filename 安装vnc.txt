@@ -1,0 +1,11 @@
+﻿我们安装tightvncserver，
+apt install tightvncserver
+
+安装完成之后运行tightvncserver：
+tightvncserver
+
+首次运行会要求设置vnc登陆密码。
+
+然后创建一个'X' desktop，可以定义分辨率和编号，用如下命令：
+vncserver -geometry 1920x1080 :1
+

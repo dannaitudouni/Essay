@@ -1,0 +1,2 @@
+设置行号：  set nu
+永久设置行号 sudo echo"set number" >> /etc/vim/vimrc

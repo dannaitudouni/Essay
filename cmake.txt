@@ -1,0 +1,114 @@
+# 声明要求的 cmake 最低版本
+cmake_minimum_required( VERSION 2.8 )
+
+# 声明一个 cmake 工程
+project( HelloSLAM )
+
+# 设置编译模式
+set( CMAKE_BUILD_TYPE "Debug" )
+
+# 添加一个可执行程序
+# 语法：add_executable( 程序名 源代码文件 ）
+add_executable( helloSLAM helloSLAM.cpp )
+
+# 添加一个库
+add_library( hello libHelloSLAM.cpp )
+# 共享库
+add_library( hello_shared SHARED libHelloSLAM.cpp )
+
+add_executable( useHello useHello.cpp )
+# 将库文件链接到可执行程序上
+target_link_libraries( useHello hello_shared )
+
+
+
+
+
+
+# 寻找OpenCV库
+find_package( OpenCV 3 REQUIRED )
+
+# 添加头文件   ${OpenCV_INCLUDE_DIRS}目录或者文件
+include_directories( ${OpenCV_INCLUDE_DIRS} )
+
+
+
+
+
+
+
+
+cmake_minimum_required (VERSION 2.8)   #版本要求
+project (Tutorial)                     #工程名称
+#find_package(OpenCV REQUIRED)
+ 
+#link_libraries(${Opencv_LIBS})
+#message(${Opencv_LIBS})
+ 
+include_directories(include) #添加头文件
+ 
+FILE(GLOB_RECURSE CURRENT_INCLUDE include/*.hpp)
+FILE(GLOB_RECURSE CURRENT_SOURCES src/*.cpp)     
+#aux_source_directory(src CURRENT_SOURCES)
+add_executable(Tutorial ${CURRENT_SOURCES} ${CURRENT_INCLUDE})  #制定生成目标
+
+
+${PROJECT_SOURCE_DIR}： 当前工程最上层的目录
+${PROJECT_BINARY_DIR}：　当前工程的构建目录
+
+
+
+接下来编写CMakeLists.txt文件，该文件放在和src，include的同级目录，实际方哪里都可以，只要里面编写的路径能够正确指向就好了。CMakeLists.txt文件，如下所示：
+
+#1.cmake verson，指定cmake版本
+cmake_minimum_required(VERSION 3.2)
+
+#2.project name，指定项目的名称，一般和项目的文件夹名称对应
+PROJECT(test_sqrt)
+
+#3.head file path，头文件目录
+INCLUDE_DIRECTORIES(
+include
+)
+
+#4.source directory，源文件目录
+AUX_SOURCE_DIRECTORY(src DIR_SRCS)
+
+#5.set environment variable，设置环境变量，编译用到的源文件全部都要放到这里，否则编译能够通过，但是执行的时候会出现各种问题，比如"symbol lookup error xxxxx , undefined symbol"
+SET(TEST_MATH
+${DIR_SRCS}
+)
+
+#6.add executable file，添加要编译的可执行文件
+ADD_EXECUTABLE(${PROJECT_NAME} ${TEST_MATH})
+
+#7.add link library，添加可执行文件所需要的库，比如我们用到了libm.so（命名规则：lib+name+.so），就添加该库的名称
+TARGET_LINK_LIBRARIES(${PROJECT_NAME} m)
+
+
+
+
+
+#!/bin/bash
+mkdir -p build
+mkdir include
+mkdir src
+if [ -e *.c ]; then
+	mv *.c src
+fi
+
+if [ -e *.h ]; then
+	mv *.h include
+fi
+
+touch CMakeLists.txt
+echo "cmake_minimum_required(version 2.8)" >> CMakeLists.txt
+echo "PROJECT(ycc)" >> CMakeLists.txt
+echo "INCLUDE_DIRECTORIES(include)" >> CMakeLists.txt
+echo "AUX_SOURCE_DIRECTORY(src DIR_SRSC)" >> CMakeLists.txt
+echo "SET(TEST_MATH  \${DIR_SRCS})" >> CMakeLists.txt
+echo "ADD_EXECUTABLE(\${PROJECT_NAME} \${DIR_SRSC})" >> CMakeLists.txt
+#echo "#TARGET_LINK_LIBRARIES(\${PROJECT_NAME} m)" >> CMakeLists.txt
+
+ 
+

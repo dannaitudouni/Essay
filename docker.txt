@@ -1,0 +1,31 @@
+一键安装脚本
+sudo curl -sSL https://get.docker.com | sh
+添加docker到用户组
+sudo usermod -aG docker $USER
+
+
+
+
+
+docker search httpd //搜索一个http的镜像
+docker pull http  //获取一个docker镜像
+docker images  //查看docker镜像
+docker run httpd //运行一个镜像
+docker ps -all //查看已经停止的容器
+docker rm ID //删除已经停止的容器
+docker import openwrt-armvirt-64-default-rootfs.tar.gz openwrt:R9.10.1 //添加本地镜像docker-img-openwrt-aarch64-latest.gz并命名为openwrt
+docker network ls //查看docker的网络
+docker ps //查看正在运行的容器
+docker ps -a  //查看所有容器
+docker restart ID //重启容器
+docker stop ID  //停止容器
+docker kill ID   //强制关闭容器
+docker exec -it 'container id' sh //进入镜像
+docker pull unifreq/openwrt-aarch64:latest //拉取最新镜像
+
+
+ip link set eth0 promisc on  //打开网卡混杂模式
+docker network create -d macvlan --subnet=192.168.2.0/24 --gateway=192.168.2.1 -o parent=eth0 macnet  //创建网络
+docker run --name openwrt --restart always -d --network macnet --privileged unifreq/openwrt-aarch64:latest /sbin/init  //运行docker
+
+https://zorz.cc/post/n1-docker-openwrt.html

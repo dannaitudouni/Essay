@@ -1,0 +1,31 @@
+1.fdisk /dev/sda 然后新建个盘，重启后，mkfs.ex4 /dev/sda3 ,然后在 OpenWrt 的挂载中，把这个分区挂载为 /opt/docker 。然后重启
+
+2.然后ssh 一键安装管理平台 docker run -d --restart=always  -p 9999:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer 
+
+3.通过 Web 的 路由器IP:9999 进入管理平台，然后就随便玩耍了
+
+
+
+下面是一些有趣的玩意：
+
+
+docker run -d --name="home-assistants" -v homeassistant:/config -p 8123:8123 homeassistant/home-assistant
+
+
+docker run -d --name="qbittorrent"  -v qbittorrent:/data -p 8888:8888 linuxserver/qbittorrent
+
+
+docker run -d -p 8096:8096 -v /jellyfin/config:/config -v /mnt:/media jellyfin/jellyfin
+
+docker run -d --restart=always --name nextcloud -p 8080:80 -v /root/nextcloud:/data docker.io/nextcloud
+
+
+在运行docker容器时可以加如下参数来保证每次路由器或者docker服务重启后容器也自动启动：
+
+docker run --restart=always
+
+如果已经启动了则可以使用如下命令更新配置：
+
+先用 docker ps 看看运行的 id，然后
+
+docker update --restart=always <CONTAINER ID>

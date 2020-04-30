@@ -1,0 +1,21 @@
+安装ftp服务器
+
+mkdir ~/ftp
+
+ cd ~/ftp
+ mkdir anonymous
+ chmod 777 anonymous
+
+
+sudo apt-get install vsftpd
+
+sudo vim /etc/vsftpd.conf
+
+anonymous_enable=YES
+anon_root=/home/……/ftp
+no_anon_password=YES
+write_enable=YES
+anon_upload_enable=YES
+anon_mkdir_write_enable=YES
+
+sudo /etc/init.d/vsftpd restart

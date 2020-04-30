@@ -1,0 +1,47 @@
+克隆主支
+Git clone  【http】
+
+克隆指定分支
+Git clone -b 【name】 【http】
+
+查看git当前分支
+git branch
+
+查看git所有分支
+git tag
+
+选择git分支
+git checkout 【version】
+
+创建厂库
+git init
+
+文件添加到缓存
+git add  【file】
+git add  -A   //全部改变的文件
+
+查看项目的当前状态
+git status
+
+缓存区内容添加到仓库
+git commit -a(跳过)/-m '第一次版本提交' 
+
+取消已缓存的内容
+git reset 【file】
+
+移除某个文件
+git rm 【file】
+
+移动某个文件
+git mv 【/】 【/】
+
+查看提交历史
+git log
+
+根据 id 回退到指定的版本
+git reset --hard id
+
+
+推送到远端master主支
+git push origin master  
+

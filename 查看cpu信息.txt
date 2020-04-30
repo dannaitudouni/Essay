@@ -1,0 +1,26 @@
+﻿/!/bian/bash
+# 当前电压
+vcgencmd measure_volts
+
+# 当前频率
+sudo cat /sys/devices/system/cpu/cpu2/cpufreq/cpuinfo_cur_freq
+
+# 当前温度
+vcgencmd measure_temp
+
+性能测试：
+
+sudo apt-get install sysbench
+表示创建4个线程来寻找 √￣20000 以内的质数：
+sysbench --num-threads=4 --test=cpu --cpu-max-prime=20000 run
+
+压力测试
+sudo apt install stress
+stress -c 4 -t 10m -v
+
+
+超频
+/boot/config.txt
+
+arm_freq=2000
+over_voltage=6
