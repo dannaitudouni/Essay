@@ -1,6 +1,9 @@
-sudo apt-get install ttf-wqy-zenhei   //安装中文字库
+﻿sudo apt-get install ttf-wqy-zenhei   //安装中文字库
 sudo locale-gen zh_CN.UTF-8           //
 
+
+
+/etc/environment
 export LANG=en_US.UTF-8
 export LANGUAGE=
 export LC_CTYPE="en_US.UTF-8"

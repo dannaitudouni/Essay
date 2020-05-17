@@ -29,3 +29,7 @@ docker run --restart=always
 先用 docker ps 看看运行的 id，然后
 
 docker update --restart=always <CONTAINER ID>
+
+
+辅助路由防火墙：
+iptables -t nat -I POSTROUTING -o eth0 -j MASQUERADE
