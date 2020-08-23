@@ -1,31 +1,33 @@
-Ò»¼ü°²×°½Å±¾
+ä¸€é”®å®‰è£…è„šæœ¬
 sudo curl -sSL https://get.docker.com | sh
-Ìí¼Ódockerµ½ÓÃ»§×é
+æ·»åŠ dockeråˆ°ç”¨æˆ·ç»„
 sudo usermod -aG docker $USER
 
 
 
 
 
-docker search httpd //ËÑË÷Ò»¸öhttpµÄ¾µÏñ
-docker pull http  //»ñÈ¡Ò»¸ödocker¾µÏñ
-docker images  //²é¿´docker¾µÏñ
-docker run httpd //ÔËĞĞÒ»¸ö¾µÏñ
-docker ps -all //²é¿´ÒÑ¾­Í£Ö¹µÄÈİÆ÷
-docker rm ID //É¾³ıÒÑ¾­Í£Ö¹µÄÈİÆ÷
-docker import openwrt-armvirt-64-default-rootfs.tar.gz openwrt:R9.10.1 //Ìí¼Ó±¾µØ¾µÏñdocker-img-openwrt-aarch64-latest.gz²¢ÃüÃûÎªopenwrt
-docker network ls //²é¿´dockerµÄÍøÂç
-docker ps //²é¿´ÕıÔÚÔËĞĞµÄÈİÆ÷
-docker ps -a  //²é¿´ËùÓĞÈİÆ÷
-docker restart ID //ÖØÆôÈİÆ÷
-docker stop ID  //Í£Ö¹ÈİÆ÷
-docker kill ID   //Ç¿ÖÆ¹Ø±ÕÈİÆ÷
-docker exec -it 'container id' sh //½øÈë¾µÏñ
-docker pull unifreq/openwrt-aarch64:latest //À­È¡×îĞÂ¾µÏñ
+docker search httpd //æœç´¢ä¸€ä¸ªhttpçš„é•œåƒ
+docker pull http  //è·å–ä¸€ä¸ªdockeré•œåƒ
+docker images  //æŸ¥çœ‹dockeré•œåƒ
+docker run httpd //è¿è¡Œä¸€ä¸ªé•œåƒ
+docker ps -all //æŸ¥çœ‹å·²ç»åœæ­¢çš„å®¹å™¨
+docker rm ID //åˆ é™¤å·²ç»åœæ­¢çš„å®¹å™¨
+docker import openwrt-armvirt-64-default-rootfs.tar.gz openwrt:R9.10.1 //æ·»åŠ æœ¬åœ°é•œåƒdocker-img-openwrt-aarch64-latest.gzå¹¶å‘½åä¸ºopenwrt
+docker network ls //æŸ¥çœ‹dockerçš„ç½‘ç»œ
+docker ps //æŸ¥çœ‹æ­£åœ¨è¿è¡Œçš„å®¹å™¨
+docker ps -a  //æŸ¥çœ‹æ‰€æœ‰å®¹å™¨
+docker restart ID //é‡å¯å®¹å™¨
+docker stop ID  //åœæ­¢å®¹å™¨
+docker kill ID   //å¼ºåˆ¶å…³é—­å®¹å™¨
+docker rm ID  //åˆ é™¤å®¹å™¨
+docker rmi ID  //åˆ é™¤é•œåƒ
+docker exec -it 'container id' sh //è¿›å…¥é•œåƒ
+docker pull unifreq/openwrt-aarch64:latest //æ‹‰å–æœ€æ–°é•œåƒ
 
 
-ip link set eth0 promisc on  //´ò¿ªÍø¿¨»ìÔÓÄ£Ê½
-docker network create -d macvlan --subnet=192.168.2.0/24 --gateway=192.168.2.1 -o parent=eth0 macnet  //´´½¨ÍøÂç
-docker run --name openwrt --restart always -d --network macnet --privileged unifreq/openwrt-aarch64:latest /sbin/init  //ÔËĞĞdocker
+ip link set eth0 promisc on  //æ‰“å¼€ç½‘å¡æ··æ‚æ¨¡å¼
+docker network create -d macvlan --subnet=192.168.2.0/24 --gateway=192.168.2.1 -o parent=eth0 macnet  //åˆ›å»ºç½‘ç»œ
+docker run --name openwrt --restart always -d --network macnet --privileged unifreq/openwrt-aarch64:latest /sbin/init  //è¿è¡Œdocker
 
 https://zorz.cc/post/n1-docker-openwrt.html
